@@ -17,8 +17,7 @@ public class Deck {
 		ArrayList<Card> shuffledDeck = new ArrayList<Card>();
 		Random rnd = new Random();
 		while (deck.size() > 0) {
-			int index = rnd.nextInt(deck.size());
-			shuffledDeck.add(deck.remove(index));
+			shuffledDeck.add(deck.remove(rnd.nextInt(deck.size())));
 		}
 		return shuffledDeck;
 	}
