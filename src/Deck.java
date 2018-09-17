@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Deck {
 	private final List<Card> deck = new ArrayList<Card>();
@@ -14,8 +15,9 @@ public class Deck {
 
 	public List<Card> shuffle() {
 		ArrayList<Card> shuffledDeck = new ArrayList<Card>();
+		Random rnd = new Random();
 		while (deck.size() > 0) {
-			int index = (int) (Math.random() * deck.size());
+			int index = rnd.nextInt(deck.size());
 			shuffledDeck.add(deck.remove(index));
 		}
 		return shuffledDeck;
