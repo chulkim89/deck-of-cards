@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Deck {
-	private final List<Card> deck = new ArrayList<Card>();
+	private List<Card> deck = new ArrayList<Card>();
 
 	public Deck() {
 		for (Suit suit : Suit.values()) {
@@ -13,16 +13,16 @@ public class Deck {
 		}
 	}
 
-	public List<Card> shuffle() {
+	public void shuffle() {
 		ArrayList<Card> shuffledDeck = new ArrayList<Card>();
 		Random rnd = new Random();
 		while (deck.size() > 0) {
 			shuffledDeck.add(deck.remove(rnd.nextInt(deck.size())));
 		}
-		return shuffledDeck;
+		deck = shuffledDeck;
 	}
 
-	public Card dealOneCard(List<Card> deck) throws EmptyDeckException {
+	public Card dealOneCard() throws EmptyDeckException {
 		if (!deck.isEmpty()) {
 			Card dealtCard = deck.get(deck.size() - 1);
 			deck.remove(deck.size() - 1);
